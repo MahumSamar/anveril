@@ -188,7 +188,7 @@ h1 .tm{ font-size:0.83em; position:relative; top:calc(-6.3 * var(--u)); margin-l
     radial-gradient(120% 90% at 52% 45%,#334a5f 0%,#142333 48%,#05090f 100%);
   isolation:isolate;
 }
-.media img{
+.media video{
   position:absolute; inset:0;
   width:100%; height:100%;
   object-fit:cover; object-position:50% 45%;
@@ -715,12 +715,9 @@ html.menu-open .orbit-caption{
   </header>
 
   <main class="media" id="research">
-    <img id="hero" alt="Photonic lens focusing neural light into a violet beam"
-      src="assets/hero-novaryn-1200.webp"
-      srcset="assets/hero-novaryn-800.webp 800w,
-              assets/hero-novaryn-1200.webp 1200w,
-              assets/hero-novaryn-1672.webp 1672w"
-      sizes="100vw" decoding="async" fetchpriority="high">
+    <video id="hero" autoplay muted loop playsinline preload="auto"
+      aria-label="Photonic lens focusing neural light into a violet beam"
+      src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261005_183134_2d4380fd-64a0-459c-a1eb-add70a3e1a7b.mp4"></video>
 
     <div class="news" role="region" aria-label="Announcement">
       <p>Novaryn presents the blueprint for the next era of AI infrastructure.</p>
@@ -837,6 +834,15 @@ html.menu-open .orbit-caption{
       .then(complete,complete);
   }catch(error){
     complete();
+  }
+})();
+</script>
+<script>
+(function(){
+  var hero=document.getElementById("hero");
+  if(hero && window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    hero.removeAttribute("autoplay");
+    hero.pause();
   }
 })();
 </script>
